@@ -12,7 +12,7 @@ function writePassword() {
 
   var passwordText = document.querySelector("#password");
 
-  var passwordLength = prompt("Enter the lenght of the password you would like to generate. \nMust be between 8 charectors and 128 charectors.");
+  var passwordLength = prompt("Enter the lenght of the password you would like to generate. \nMust be between 8 charecters and 128 charecters.");
 
 
   if(passwordLength > 7 && passwordLength < 129) {
@@ -23,8 +23,7 @@ function writePassword() {
     var numbers = "1234567890";
     var special = "~!@#$%^&*()-_=+<>?";
     var generatedPassword = "";
-    // let filter = [{confirmLowerCase}, {confirmUpperCase}, {confirmNumbers}, {confirmSpecial}].filter(item => Object.values(item)[0]);
-    // var length = passwordLength - filter.length;
+
     function addNecessaryChars (charecters) {
       collectionOfCriterias += charecters;
       const addNecessaryChar = Math.floor(Math.random() * charecters.length);
@@ -59,9 +58,7 @@ function writePassword() {
         var result = (collectionOfCriterias.charAt(random));
         generatedPassword = generatedPassword + result;
       }
-      // generatedPassword = generatePassword(confirmLowerCase, confirmUpperCase, confirmNumbers, confirmSpecial);
 
-      //passgenerated into array
       var arrayOfPassword = generatedPassword.split('');
       console.log(arrayOfPassword);
       shuffle(arrayOfPassword);
@@ -70,8 +67,6 @@ function writePassword() {
 
       passwordText.textContent = generatedPassword;
 
-      // console.log(generatePassword);
-      // console.log(filter);
     } else {
       alert("Try again !! Password must contain atleast one criteria.")
     }
