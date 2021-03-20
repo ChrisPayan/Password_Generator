@@ -2,6 +2,9 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
+function shuffle(arrayOfPassword) {
+  arrayOfPassword.sort(() => Math.random() - 0.5);
+}
 
 function writePassword() {
 
@@ -58,19 +61,25 @@ function writePassword() {
       }
       // generatedPassword = generatePassword(confirmLowerCase, confirmUpperCase, confirmNumbers, confirmSpecial);
 
+      //passgenerated into array
+      var arrayOfPassword = generatedPassword.split('');
+      console.log(arrayOfPassword);
+      shuffle(arrayOfPassword);
+      console.log(arrayOfPassword);
+      generatedPassword = arrayOfPassword.join('');
+
       passwordText.textContent = generatedPassword;
+
       // console.log(generatePassword);
       // console.log(filter);
     } else {
       alert("Try again !! Password must contain atleast one criteria.")
     }
 
-} else {
-  alert("Try again !! Password must be between 8 and 128.. No more.. No less.")
-}
-//   var password = generatePassword();
+  } else {
+    alert("Try again !! Password must be between 8 and 128.. No more.. No less.")
+  }
 
- 
 }
 
 // Add event listener to generate button
